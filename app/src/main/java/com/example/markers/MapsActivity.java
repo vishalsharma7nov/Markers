@@ -102,24 +102,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng loc = new LatLng(lat, lon);
             mMap.addMarker(new MarkerOptions()
             .position(loc)
-            .title("Position : "+info.getId()));
+            .title("Position : "+info.getUsername() ));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            mMap.moveCamera(CameraUpdateFactory.zoomBy(9));
             Log.d("latlong", lat.toString());
             Log.d("latlong", lon.toString());
+
         }
 
-//        Double la = Double.parseDouble(lat[i]);
-//        Double lt = Double.parseDouble(lng[i]);
-
-//         Add a marker in Sydney and move the camera
-        /*LatLng sydney = new LatLng(0,0);
-        mMap.addMarker(new MarkerOptions()
-            .position(sydney)
-            .title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-
-        mMap.getMaxZoomLevel();
-        mMap.getMinZoomLevel();*/
 
 
 

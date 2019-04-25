@@ -28,15 +28,24 @@ public class msg {
         String id;
         String latitude;
         String longitude;
+        String username;
 
 
+        public String getUsername() {
+            return username;
+        }
 
-        public msg_info(String id, String latitude, String longitude)
+        public void setUsername(String username) {
+            this.username = username;
+        }
+
+        public msg_info(String id, String latitude, String longitude, String username)
         {
 
             this.id = id;
             this.latitude  = latitude;
             this.longitude = longitude;
+            this.username  = username;
 
 
         }
