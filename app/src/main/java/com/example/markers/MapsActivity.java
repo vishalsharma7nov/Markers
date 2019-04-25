@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -37,10 +38,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_maps);
 
         hero = new ArrayList<>();
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
 
         lv = findViewById(R.id.list);
 
@@ -78,6 +75,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 ArrayAdapter a = new ArrayAdapter(MapsActivity.this,android.R.layout.simple_list_item_1,longitude);
                 lv.setAdapter(ar);*/
 
+                SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.map);
+                mapFragment.getMapAsync(MapsActivity.this);
+
 
 
             }
@@ -103,6 +104,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             .position(loc)
             .title("Position : "+info.getId()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            Log.d("latlong", lat.toString());
+            Log.d("latlong", lon.toString());
         }
 
 //        Double la = Double.parseDouble(lat[i]);
